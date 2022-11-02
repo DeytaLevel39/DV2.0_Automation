@@ -1,12 +1,16 @@
 from get_metadata import get_columns
 
-def create_stage_sql_file(tablename, business_keys, foreign_keys):
+def create_stage_sql_file(tablename, business_keys, foreign_keys, record_sources):
     #Fetch all of the table columns
     cols = [dict(col) for col in get_columns('repl_' + tablename)]
     #Find out if there's a parent for this tablename
     parent = None
     if tablename in foreign_keys:
         parent = foreign_keys[tablename]['parent']
+    if tablename in record_sources:
+        record_source = record_sources[tablename]
+    else:
+        print("Error! No record source found!")
     #Fetch the business key
     if tablename in business_keys:
         business_key = business_keys[tablename].upper()
@@ -19,10 +23,10 @@ derived_columns:
   %s_KEY: '%s'\n"""%(tablename,tablename.upper(),business_key)
     if parent:
         sql+="  %s_KEY: '%s'\n"%(parent.upper(), parent_business_key)
-    sql+="""  RECORD_SOURCE: '!1'
+    sql+="""  RECORD_SOURCE: '!%i'
   EFFECTIVE_FROM: 'LASTMODIFIEDDATE'
 hashed_columns:
-  %s_HK: '%s_KEY'"""%(tablename.upper(), tablename.upper())
+  %s_HK: '%s_KEY'"""%(record_source, tablename.upper(), tablename.upper())
     if parent:
         sql+="""\n  %s_HK: '%s_KEY'
   %s_%s_HK:
