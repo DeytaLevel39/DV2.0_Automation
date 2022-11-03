@@ -1,12 +1,8 @@
-orders:
+order:
     fk: customer_id
-    parent: UK_customers
+    parent: UK_customer
     parent_pk: customer_id
-UK_customers:
+UK_customer:
     fk: wealth_bracket
-    parent: customer_wealth_brackets
-    parent_pk: id
-US_customers:
-    fk: wealth_bracket
-    parent: customer_wealth_brackets
+    parent: customer_wealth_bracket
     parent_pk: id

@@ -1,4 +1,4 @@
-customer_wealth_brackets: 3
-UK_customers : 1
-US_customers : 101
-orders : 2
+customer_wealth_bracket: 3
+UK_customer : 1
+US_customer : 101
+order : 2
