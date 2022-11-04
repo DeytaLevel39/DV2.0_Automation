@@ -5,7 +5,7 @@ from google.cloud import bigquery
 # read the credentials from our file
 # scopes are not necessary because we defined them in GCP already
 # path to your json key file
-KEY_PATH = "steadfast-task-363413-ac5682e51aba.json"
+KEY_PATH = "steadfast-task-363413-97887111302d.json"
 CREDS = service_account.Credentials.from_service_account_file(KEY_PATH, scopes=["https://www.googleapis.com/auth/cloud-platform"])
 
 # the client object will be used to interact with BQ
