@@ -1,4 +1,4 @@
 customer_wealth_bracket: id
 UK_customer : customer_number
 US_customer : customer_number
-order : order_number
+UK_order : order_number

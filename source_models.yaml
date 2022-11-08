@@ -1,3 +1,3 @@
 customer: [UK_customer,US_customer]
-order: [order]
+order: [UK_order]
 customer_wealth_bracket: [customer_wealth_bracket]

@@ -17,6 +17,8 @@ hashed_columns:
     - CREATEDDATE
     - APPLIEDDATE
     - CRUD_FLAG
+    - TITLE
+    - WEALTH_BRACKET
 {%- endset -%}
 
 {% set metadata_dict = fromyaml(yaml_metadata) %}
